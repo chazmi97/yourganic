@@ -8,6 +8,11 @@ import {
 var myBackground = require('../assets/image/pink.jpg');
 var logo = require('../assets/image/Logo.png');
 class SignIn extends React.Component{
+
+    redirect(){
+        this.props.switchScreen("register")
+    }
+
     render() {
         return (
             <Container style={styles.headerStyle}>
@@ -16,7 +21,9 @@ class SignIn extends React.Component{
                     style={{ width: '100%', height: '100%' }}>
                     <Header style={{ backgroundColor: 'transparent' }} noShadow>
                         <Left>
-                            <Button transparent>
+                            <Button transparent
+                                onPress={() => this.props.switchScreen("register")}
+                            >
                                 <Icon name='arrow-back' />
                             </Button>
                         </Left>

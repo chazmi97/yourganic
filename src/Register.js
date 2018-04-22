@@ -31,7 +31,7 @@ class Register extends React.Component{
       };
 
       redirect(){
-          this.props.navigation.navigate('SignIn')
+        this.props.switchScreen("signIn")
       }
     render() {
         // const { navigate } = this.props.navigation;
@@ -42,7 +42,6 @@ class Register extends React.Component{
                     <Header style={{ backgroundColor: 'transparent' }} noShadow>
                         <Left>
                             <Button transparent         
-                                title="Go to Jane's profile"
                                 onPress={() =>
                                 this.redirect()}>
                                 <Icon name='arrow-back' />
