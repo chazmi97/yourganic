@@ -32,7 +32,7 @@ class Register extends React.Component{
             <Container style={styles.headerStyle}>   
                 <ImageBackground source={myBackground}
                     style={{ width: '100%', height: '100%' }}>
-                    <Header style={{ backgroundColor: 'transparent' }} noShadow>
+                    {/* <Header style={{ backgroundColor: 'transparent' }} noShadow>
                         <Left>
                             <Button transparent         
                                 title="Go to Jane's profile"
@@ -45,7 +45,7 @@ class Register extends React.Component{
                             <Title style={styles.title}>Register</Title>
                         </Body>
                         <Right />
-                    </Header>
+                    </Header> */}
                     <ScrollView style={styles.container}>
                         <Text style={styles.titleStyle}>
                             Welcome to Yourganic!
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
         color: 'white',
         alignSelf: 'center',
         margin:20,
-        paddingTop: 10,
+        paddingTop: 70,
     },
     buttonStyle: {
         margin: 10
