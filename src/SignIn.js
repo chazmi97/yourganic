@@ -1,19 +1,43 @@
 import React from 'react'
-import {View,Text,StyleSheet,ImageBackground} from 'react-native';
-import { Button } from 'native-base';
+import { View, Text, StyleSheet, ImageBackground, Image} from 'react-native';
+import { 
+    Container, Header, Left, Body, Right, Button, Icon, 
+    Title, Content, FooterTab, Footer, Form, Item, Input 
+} from 'native-base';
 
 var myBackground = require('../assets/image/pink.jpg');
-
+var logo = require('../assets/image/cart.png');
 class SignIn extends React.Component{
     render() {
         return (
-            <View>
+            <Container style={styles.headerStyle}>
+                
                 <ImageBackground source={myBackground}
                     style={{ width: '100%', height: '100%' }}>
+                    <Header style={{ backgroundColor: 'transparent' }} noShadow>
+                        <Left>
+                            <Button transparent>
+                                <Icon name='arrow-back' />
+                            </Button>
+                        </Left>
+                        <Body>
+                            <Title>Login</Title>
+                        </Body>
+                        <Right />
+                    </Header>
                     <View style={styles.container}>
-                        <Text style={styles.titleStyle}>
-                            Welcome to Yourganic!
-                        </Text>
+                        <Image source={logo} style={styles.logo} />
+                        <Text style={styles.titleStyle}>Welcome to Yourganic!</Text>
+                        <Content>
+                            <Form>
+                                <Item>
+                                    <Input placeholder="Username" />
+                                </Item>
+                                <Item last>
+                                    <Input placeholder="Password" />
+                                </Item>
+                            </Form>
+                        </Content>
                         <Button
                             block={true}
                             style={styles.buttonStyle}>
@@ -21,7 +45,7 @@ class SignIn extends React.Component{
                         </Button>
                     </View>
                 </ImageBackground>
-            </View>
+            </Container>
         );
     }
 }
@@ -41,6 +65,18 @@ const styles = StyleSheet.create({
     },
     buttonTextStyle: {
         color: 'white'
+    },
+    logo: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: 100,
+        height: 100,
+        resizeMode: 'contain'
+    },
+    headerStyle: {
+        paddingTop: 18,
+        backgroundColor: 'gray',
     }
 });
 
