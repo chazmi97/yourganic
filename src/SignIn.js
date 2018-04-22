@@ -8,7 +8,7 @@ import {
 import { ScrollView } from 'react-native-gesture-handler';
 
 var myBackground = require('../assets/image/pink.jpg');
-var logo = require('../assets/image/cart.png');
+var logo = require('../assets/image/Logo.png');
 class SignIn extends React.Component{
     render() {
         return (

@@ -1,8 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import SignIn from './src/SignIn';
-import { Font, AppLoading } from "expo";
-
+import Register from './src/Register';
 export default class App extends React.Component {
   state = {
     fontLoaded: false,
