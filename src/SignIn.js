@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet, ImageBackground, Image} from 'react-native';
+import { View, Text, StyleSheet, ImageBackground, Image, Platform} from 'react-native';
 import { 
     Container, Header, Left, Body, Right, Button, Icon, 
     Title, Content, FooterTab, Footer, Form, Item, Input ,
@@ -20,38 +20,38 @@ class SignIn extends React.Component{
             <Container style={styles.headerStyle}>
                 <ImageBackground source={myBackground}
                     style={{ width: '100%', height: '100%' }}>
-                    <ScrollView>
-                        <Header style={{ backgroundColor: 'transparent' }} noShadow>
-                            <Left>
-                                <Button transparent>
-                                    <Icon name='arrow-back' />
-                                </Button>
-                            </Left>
-                            <Body>
-                                <Title>Login</Title>
-                            </Body>
-                            <Right />
-                        </Header>
-                        <View style={styles.container}>
-                            <Image source={logo} style={styles.logo} />
-                            <Text style={styles.titleStyle}>Welcome to Yourganic!</Text>
-                        </View>
-                        {/* <Container> */}
-                            <Form>
-                                <Item floatingLabel>
-                                    <Label style={styles.labelStyle}>Username</Label>
-                                    <Input style={styles.inputTextStyle} />
-                                </Item>
-                                <Item floatingLabel last>
-                                    <Label style={styles.labelStyle}>Password</Label>
-                                    <Input style={styles.inputTextStyle} />
-                                </Item>
-                            </Form>
-                            <Button
-                                block={true}
-                                style={styles.buttonStyle}>
-                                <Text style={styles.buttonTextStyle}>Sign In</Text>
+                    <Header style={{ backgroundColor: 'transparent', marginTop: 18 }} noShadow>
+                        <Left>
+                            <Button transparent>
+                                <Icon name='arrow-back' />
                             </Button>
+                        </Left>
+                        <Body>
+                            <Title>Login</Title>
+                        </Body>
+                        <Right />
+                    </Header>
+                    <ScrollView style={{flex: 1}}>
+                        {/* <View style={styles.container}> */}
+                        <Image source={logo} style={styles.logo} />
+                        <Text style={styles.titleStyle}>Welcome to Yourganic!</Text>
+                        {/* </View> */}
+                        {/* <Container> */}
+                        <Form>
+                            <Item floatingLabel>
+                                <Label style={styles.labelStyle}>Username</Label>
+                                <Input style={styles.inputTextStyle} />
+                            </Item>
+                            <Item floatingLabel last>
+                                <Label style={styles.labelStyle}>Password</Label>
+                                <Input style={styles.inputTextStyle} />
+                            </Item>
+                        </Form>
+                        <Button
+                            block={true}
+                            style={styles.buttonStyle}>
+                            <Text style={styles.buttonTextStyle}>Sign In</Text>
+                        </Button>
                         {/* </Container> */}
                     </ScrollView>
                 </ImageBackground>
@@ -71,7 +71,8 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     buttonStyle: {
-        margin: 10,
+        marginTop: 10,
+        marginBottom: 10,
     },
     buttonTextStyle: {
         color: 'white'
@@ -80,13 +81,15 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
+        marginTop: 25,
+        marginBottom: 20,
         width: 100,
         height: 100,
         resizeMode: 'contain'
     },
     headerStyle: {
         // paddingTop: 18,
-        marginTop: Platform.OS === "android" ? 18 : 0,
+        // marginTop: Platform.OS === "android" ? 18 : 0,
         backgroundColor: 'gray',
     },
     labelStyle: {
