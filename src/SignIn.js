@@ -12,7 +12,7 @@ var logo = require('../assets/image/Logo.png');
 class SignIn extends React.Component{
 
     redirect(){
-        this.props.switchScreen("register")
+        this.props.navigation.navigate('Register')
     }
 
     render() {
@@ -20,9 +20,12 @@ class SignIn extends React.Component{
             <Container style={styles.headerStyle}>
                 <ImageBackground source={myBackground}
                     style={{ width: '100%', height: '100%' }}>
-                    <Header style={{ backgroundColor: 'transparent', marginTop: 18 }} noShadow>
+                    {/* <Header style={{ backgroundColor: 'transparent', marginTop: 18 }} noShadow>
                         <Left>
-                            <Button transparent>
+                            <Button transparent
+                                onPress={() =>
+                                this.redirect()}>
+                            >
                                 <Icon name='arrow-back' />
                             </Button>
                         </Left>
@@ -30,7 +33,7 @@ class SignIn extends React.Component{
                             <Title>Login</Title>
                         </Body>
                         <Right />
-                    </Header>
+                    </Header> */}
                     <ScrollView style={{flex: 1}}>
                         {/* <View style={styles.container}> */}
                         <Image source={logo} style={styles.logo} />

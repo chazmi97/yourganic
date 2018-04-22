@@ -1,39 +1,57 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import {StackNavigator} from 'react-navigation';
+
 import SignIn from './src/SignIn';
 import Register from './src/Register';
-export default class App extends React.Component {
-<<<<<<< HEAD
+import {Stack} from './src/Router';
+import LogoTitle from './src/LogoTitle'
 
-  state = { 
-    currentScreen: "signIn"
+
+const Apps = StackNavigator({
+  SignIn: { 
+    screen: SignIn,
+    navigationOptions:{
+      title: "Login",
+      // headerTitleStyle: { color: 'white' },
+      // // headerLeft: (<Image source={require('../resources/independent-logo.png')} style={styles.logo}/>),
+      headerStyle: {        
+        position: 'absolute',
+        backgroundColor: 'transparent',
+        zIndex: 100,
+        top: 0,
+        left: 0,
+        right: 0
+      },
   }
+},
+  Register: { screen: Register },
+});
+
+export default class App extends React.Component {
+  state = {
+    fontLoaded: false,
+    currentScreen: "signIn"
+
+  }
+
   switchScreen = (currentScreen) =>{
     this.setState({currentScreen});
   }
   renderScreen = () =>{
-    if(this.state.currentScreen === "register"){
+    if(this.state.currentScreen === "signIn"){
       return (
-        <Register switchScreen={this.switchScreen} />
+        <SignIn switchScreen={this.switchScreen} />
       )
     }
-    else if (this.state.currentScreen === "signIn") {
+    else if (this.state.currentScreen === "register") {
       return (
-        <SignIn />
+        <Register switchScreen={this.switchScreen}/>
       )
     }
   }
 
-  render() {
-    return (
-      <View style={styles.container}>
-        {this.renderScreen()}
-      </View>
-    );
-=======
-  state = {
-    fontLoaded: false,
-  }
+
   async componentWillMount() {
     await Expo.Font.loadAsync({
       Roboto: require("native-base/Fonts/Roboto.ttf"),
@@ -45,7 +63,7 @@ export default class App extends React.Component {
     if(this.state.fontLoaded){
       return (
         <View style={styles.container}>
-          <SignIn />
+          <Apps />
         </View>
       );
     }
@@ -54,7 +72,6 @@ export default class App extends React.Component {
         <Text></Text>
       );
     }
->>>>>>> 964813da8e3d059c57864441582d1f3ba2225759
   }
 }
 

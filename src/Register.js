@@ -10,13 +10,6 @@ import {StackNavigator} from 'react-navigation';
 import SignIn from './SignIn';
 // import Register from './register';
 
-  
-
-const App = StackNavigator({
-    SignIn: { screen: SignIn },
-    // Register: { screen: Register },
-  });
-
 var myBackground = require('../assets/image/pink.jpg');
 
 class Register extends React.Component{
@@ -31,7 +24,7 @@ class Register extends React.Component{
       };
 
       redirect(){
-        this.props.switchScreen("signIn")
+        this.props.navigation.navigate('Register', { name: 'Jane' } )
       }
     render() {
         // const { navigate } = this.props.navigation;
@@ -42,6 +35,7 @@ class Register extends React.Component{
                     <Header style={{ backgroundColor: 'transparent' }} noShadow>
                         <Left>
                             <Button transparent         
+                                title="Go to Jane's profile"
                                 onPress={() =>
                                 this.redirect()}>
                                 <Icon name='arrow-back' />
