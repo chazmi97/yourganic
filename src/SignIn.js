@@ -80,7 +80,8 @@ const styles = StyleSheet.create({
         resizeMode: 'contain'
     },
     headerStyle: {
-        paddingTop: 18,
+        // paddingTop: 18,
+        marginTop: Platform.OS === "android" ? 18 : 0,
         backgroundColor: 'gray',
     },
     labelStyle: {
