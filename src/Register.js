@@ -10,13 +10,6 @@ import {StackNavigator} from 'react-navigation';
 import SignIn from './SignIn';
 // import Register from './register';
 
-  
-
-const App = StackNavigator({
-    SignIn: { screen: SignIn },
-    // Register: { screen: Register },
-  });
-
 var myBackground = require('../assets/image/pink.jpg');
 
 class Register extends React.Component{
@@ -31,7 +24,7 @@ class Register extends React.Component{
       };
 
       redirect(){
-          this.props.navigation.navigate('SignIn')
+        this.props.navigation.navigate('Register', { name: 'Jane' } )
       }
     render() {
         // const { navigate } = this.props.navigation;
