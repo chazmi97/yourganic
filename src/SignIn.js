@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet, ImageBackground, Image} from 'react-native';
+import { View, Text, StyleSheet, ImageBackground, Image, Platform} from 'react-native';
 import { 
     Container, Header, Left, Body, Right, Button, Icon, 
     Title, Content, FooterTab, Footer, Form, Item, Input ,
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     },
     headerStyle: {
         // paddingTop: 18,
-        marginTop: Platform.OS === "android" ? 18 : 0,
+        // marginTop: Platform.OS === "android" ? 18 : 0,
         backgroundColor: 'gray',
     },
     labelStyle: {
