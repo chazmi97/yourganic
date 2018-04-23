@@ -20,45 +20,33 @@ class SignIn extends React.Component{
 
     render() {
         return (
-            <KeyboardAvoidingView behavior="padding">
-                <ImageBackground source={myBackground}
-                    style={{ width: '100%', height: '100%' }}>
-                    {/* <Header style={{ backgroundColor: 'transparent', marginTop: 18 }} noShadow>
-                        <Left>
-                            <Button transparent
-                                onPress={() =>
-                                this.redirect()}>
-                            >
-                                <Icon name='arrow-back' />
-                            </Button>
-                        </Left>
-                        <Body>
-                            <Title>Login</Title>
-                        </Body>
-                        <Right />
-                    </Header> */}
-                    <ScrollView style={{flex: 1}}>
+            <ImageBackground source={myBackground}
+                style={{ width: '100%', height: '100%' }}>
+                <ScrollView style={{flex:1}}>
+                    <KeyboardAvoidingView behavior="padding">
                         <Image source={logo} style={styles.logo} />
-                        <Text style={styles.titleStyle}>Welcome to Yourganic!</Text>
-                        <Form>
-                            <Item floatingLabel>
-                                <Label style={styles.labelStyle}>Username</Label>
-                                <Input style={styles.inputTextStyle} />
-                            </Item>
-                            <Item floatingLabel last>
-                                <Label style={styles.labelStyle}>Password</Label>
-                                <Input style={styles.inputTextStyle} />
-                            </Item>
-                        </Form>
-                        <Button
-                            block={true}
-                            style={styles.buttonStyle}>
-                            <Text style={styles.buttonTextStyle}>Sign In</Text>
-                        </Button>
-                        <Text style={{ color: 'white', alignSelf: 'center', marginTop: 30, flex: 1, flexDirection: 'row', alignContent: 'flex-end' }}> Dont have account? SIGN UP</Text>
-                    </ScrollView>
-                </ImageBackground>
-            </KeyboardAvoidingView>
+                        <Content>
+                            <Text style={styles.titleStyle}>Welcome to Yourganic!</Text>
+                            <Form>
+                                <Item floatingLabel>
+                                    <Label style={styles.labelStyle}>Username</Label>
+                                    <Input style={styles.inputTextStyle} />
+                                </Item>
+                                <Item floatingLabel last>
+                                    <Label style={styles.labelStyle}>Password</Label>
+                                    <Input style={styles.inputTextStyle} />
+                                </Item>
+                            </Form>
+                            <Button
+                                block={true}
+                                style={styles.buttonStyle}>
+                                <Text style={styles.buttonTextStyle}>Sign In</Text>
+                            </Button>
+                            <Text style={{ color: 'white', alignSelf: 'center', marginTop: 60, }}> Dont have account? SIGN UP</Text>
+                        </Content>
+                    </KeyboardAvoidingView>
+                </ScrollView>
+            </ImageBackground>
         );
     }
 }
@@ -84,8 +72,8 @@ const styles = StyleSheet.create({
     logo: {
         // flex: 1,
         justifyContent: 'center',
-        marginTop: 70,
-        marginBottom: 20,
+        marginTop: 100,
+        marginBottom: 50,
         width: 150,
         height: 150,
         resizeMode: 'contain',

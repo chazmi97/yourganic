@@ -6,9 +6,28 @@ import SignIn from './src/SignIn';
 import Register from './src/Register';
 import {Stack} from './src/Router';
 import LogoTitle from './src/LogoTitle'
+import Mains from './src/Mains'
 
 
 const Apps = StackNavigator({
+
+  Main:{
+    screen: Mains,
+    navigationOptions:{
+      // title: "Main",
+      // headerTitleStyle: { color: 'white' },
+      // // headerLeft: (<Image source={require('../resources/independent-logo.png')} style={styles.logo}/>),
+      headerStyle: {        
+        position: 'absolute',
+        backgroundColor: 'transparent',
+        zIndex: 100,
+        top: 0,
+        left: 0,
+        right: 0,
+        borderBottomWidth: 0,
+      }
+    }    
+  },
   SignIn: { 
     screen: SignIn,
     navigationOptions:{
@@ -22,11 +41,28 @@ const Apps = StackNavigator({
         top: 0,
         left: 0,
         right: 0,
-        // color: 'white',
+        borderBottomWidth: 0,
       },
   }
 },
-  Register: { screen: Register },
+  Register: { 
+    screen: Register,
+    navigationOptions:{
+      title: "Register",
+      headerTitleStyle: { color: 'white' },
+      // // headerLeft: (<Image source={require('../resources/independent-logo.png')} style={styles.logo}/>),
+      headerStyle: {        
+        position: 'absolute',
+        backgroundColor: 'transparent',
+        zIndex: 100,
+        top: 0,
+        left: 0,
+        right: 0,
+        borderBottomWidth: 0,
+      },
+  }
+  
+  },
 });
 
 export default class App extends React.Component {
