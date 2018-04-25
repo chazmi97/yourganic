@@ -10,7 +10,23 @@ import { ScrollView } from 'react-native-gesture-handler';
 var myBackground = require('../assets/image/pink.jpg');
 var logo = require('../assets/image/Logo.png');
 class Mains extends React.Component{
-
+    static navigationOptions = {
+            headerStyle: {
+                position: 'absolute',
+                backgroundColor: 'transparent',
+                zIndex: 100,
+                top: 0,
+                left: 0,
+                right: 0,
+                borderBottomWidth: 0,
+                shadowOpacity: 0,
+                shadowOffset: {
+                    height: 0,
+                },
+                shadowRadius: 0,
+                elevation: 0,
+            }
+        }    
     redirect_signIn(){
         this.props.navigation.navigate('SignIn')
     }

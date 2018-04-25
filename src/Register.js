@@ -13,6 +13,25 @@ import SignIn from './SignIn';
 var myBackground = require('../assets/image/pink.jpg');
 
 class Register extends React.Component{
+    static navigationOptions = {
+        // title: "Register",
+        headerTitleStyle: { color: 'white' },
+        headerStyle: {
+            position: 'absolute',
+            backgroundColor: 'transparent',
+            zIndex: 100,
+            top: 0,
+            left: 0,
+            right: 0,
+            borderBottomWidth: 0,
+            shadowOpacity: 0,
+            shadowOffset: {
+                height: 0,
+            },
+            shadowRadius: 0,
+            elevation: 0,
+        },
+    }
     constructor(props) {
         super(props);
       }
