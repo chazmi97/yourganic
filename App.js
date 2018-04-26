@@ -1,16 +1,24 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import {StackNavigator} from 'react-navigation';
+import {StackNavigator, DrawerNavigator} from 'react-navigation';
+import { 
+  Container, Header, Left, Body, Right, Button, Icon, 
+  Title, Content, FooterTab, Footer, Form, Item, Input, Label
+} from 'native-base';
 
 import SignIn from './src/SignIn';
 import Register from './src/Register';
-import {Stack} from './src/Router';
-import LogoTitle from './src/LogoTitle'
-import Mains from './src/Mains'
+import LogoTitle from './src/LogoTitle';
+import Mains from './src/Mains';
+import Home from './src/Home';
+import SideMenus from './src/SideMenus'
+import HomeScreen from './src/HomeScreen/HomeScreen.js'
+
+// import ReduxNavigation from './Navigation/ReduxNavigation'
+
 
 
 const Apps = StackNavigator({
-
   Main:{
     screen: Mains,
     navigationOptions:{
@@ -25,6 +33,8 @@ const Apps = StackNavigator({
         left: 0,
         right: 0,
         borderBottomWidth: 0,
+        shadowRadius: 0,
+        shadowOpacity: 0,
       }
     }    
   },
@@ -60,16 +70,90 @@ const Apps = StackNavigator({
         right: 0,
         borderBottomWidth: 0,
       },
-  }
-  
+  } 
   },
+  Home : {
+    screen : HomeScreen,
+    
+    navigationOptions:{
+      title: "Home",
+  } 
+  }
+},{
+  headerMode : 'none'
 });
+
+
+const Appss = DrawerNavigator({
+  Main:{
+    screen: Mains,
+    navigationOptions:{
+      // title: "Main",
+      // headerTitleStyle: { color: 'white' },
+      // // headerLeft: (<Image source={require('../resources/independent-logo.png')} style={styles.logo}/>),
+      headerStyle: {        
+        position: 'absolute',
+        backgroundColor: 'transparent',
+        zIndex: 100,
+        top: 0,
+        left: 0,
+        right: 0,
+        borderBottomWidth: 0,
+        shadowRadius: 0,
+        shadowOpacity: 0,
+      }
+    }    
+  },
+  SignIn: { 
+    screen: SignIn,
+    navigationOptions:{
+      title: "Login",
+      headerTitleStyle: { color: 'white' },
+      // // headerLeft: (<Image source={require('../resources/independent-logo.png')} style={styles.logo}/>),
+      headerStyle: {        
+        position: 'absolute',
+        backgroundColor: 'transparent',
+        zIndex: 100,
+        top: 0,
+        left: 0,
+        right: 0,
+        borderBottomWidth: 0,
+      },
+  }
+},
+  Register: { 
+    screen: Register,
+    navigationOptions:{
+      title: "Register",
+      headerTitleStyle: { color: 'white' },
+      // // headerLeft: (<Image source={require('../resources/independent-logo.png')} style={styles.logo}/>),
+      headerStyle: {        
+        position: 'absolute',
+        backgroundColor: 'transparent',
+        zIndex: 100,
+        top: 0,
+        left: 0,
+        right: 0,
+        borderBottomWidth: 0,
+      },
+  } 
+  },
+  Home : {
+    screen : HomeScreen,
+    
+    navigationOptions:{
+      title: "Home",
+  } 
+  }
+},{
+  headerMode : 'none'
+});
+
 
 export default class App extends React.Component {
   state = {
     fontLoaded: false,
     currentScreen: "signIn"
-
   }
 
   switchScreen = (currentScreen) =>{

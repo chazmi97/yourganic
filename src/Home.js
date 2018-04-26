@@ -8,9 +8,16 @@ import {
 import { ScrollView } from 'react-native-gesture-handler';
 import Sidebar from 'react-native-sidebar';
 
+
 var myBackground = require('../assets/image/pink.jpg');
 var logo = require('../assets/image/Logo.png');
-class Mains extends React.Component{
+class Home extends React.Component{
+    constructor(){
+ 
+        super();
+    
+        global.SampleVar = 1;
+      }
 
     redirect_signIn(){
         this.props.navigation.navigate('SignIn')
@@ -21,32 +28,7 @@ class Mains extends React.Component{
 
     render() {
         return (
-            <Container style={styles.headerStyle}>
-                <ImageBackground source={myBackground}
-                    style={{ width: '100%', height: '100%' }}>
-                    <ScrollView style={{flex: 1}}>
-                        <Image source={logo} style={styles.logo} />
-                        <Text style={styles.titleStyle}>Welcome to Yourganic!</Text>
-
-                        <Button
-                            block={true}
-                            style={styles.buttonStyle}
-                            onPress={() => this.redirect_signIn()}
-                            >
-                            <Text style={styles.buttonTextStyle}>Sign In</Text>
-                        </Button>
-
-                        <Button
-                            block={true}
-                            style={styles.buttonRegister}
-                            onPress={() => this.redirect_register()}
-                            >
-                            <Text style={styles.buttonTextStyle}>Register</Text>
-                        </Button>
-                        {/* </Container> */}
-                    </ScrollView>
-                </ImageBackground>
-            </Container>
+                <Text>nama </Text>
         );
     }
 }
@@ -102,4 +84,4 @@ const styles = StyleSheet.create({
     
 });
 
-export default Mains;
+export default Home;
