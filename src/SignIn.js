@@ -34,10 +34,49 @@ class SignIn extends React.Component{
             shadowRadius: 0,
             elevation: 0,
         },
-    };
+    }
+    constructor(props) {
+        super(props);
+      }
+      state = {
+        email: '',
+        password:'',
+      };
+
+      login(){
+          fetch('http://azizpc.codepanda.web.id/api/auth/login',{
+              method: 'post',
+              headers:{
+                  Accept: 'application/json',
+                  'Content-type' : 'application/json' 
+              },
+              body:JSON.stringify({
+                  email: this.state.email,
+                  password: this.state.password,
+              })
+
+          }).then((response)=> response.json())
+                    .then((responseJSON)=> {
+                        if(responseJSON.data){
+                            // console.error(responseJSON)
+                            alert("Login Berhasil")
+                            this.redirect_Home(responseJSON)
+                        }
+                        else{
+                            console.error(responseJSON)
+                            alert("Login gagal, periksa email dan password anda")
+                        }
+                    })
+                    .catch((error)=>{
+                        console.error(error)
+                    })
+      }
     redirect(){
         this.props.navigation.navigate('Register')
     }
+    redirect_Home(data){
+        this.props.navigation.navigate('Home', data) 
+      }
 
     render() {
         return (
@@ -50,18 +89,26 @@ class SignIn extends React.Component{
                             {/* <Text style={styles.titleStyle}>Welcome to Yourganic!</Text> */}
                             <Form>
                                 <Item floatingLabel>
-                                    <Label style={styles.labelStyle}>Username</Label>
-                                    <Input style={styles.inputTextStyle} />
+                                    <Label style={styles.labelStyle}>Email</Label>
+                                    <Input 
+                                    style={styles.inputTextStyle} 
+                                    onChangeText={(email) => this.setState({email})} 
+                                    />
                                 </Item>
                                 <Item floatingLabel last>
                                     <Label style={styles.labelStyle}>Password</Label>
-                                    <Input style={styles.inputTextStyle} />
+                                    <Input 
+                                    style={styles.inputTextStyle} 
+                                    onChangeText={(password) => this.setState({password})} 
+                                    />
                                 </Item>
                             </Form>
                             <Button
+                                onPress={() => this.login()}
                                 block={true}
                                 style={styles.buttonStyle}>
                                 <Text style={styles.buttonTextStyle}>Sign In</Text>
+                                
                             </Button>
                             <Text style={{ color: 'white', alignSelf: 'center', marginTop: 60, }}> Dont have account? SIGN UP</Text>
                         </Content>

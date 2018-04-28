@@ -23,7 +23,14 @@ import {
 } from "native-base";
 
 
+
+
 export default class HomeScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    this.data = this.props.navigation.state.params.data
+  }
+
   render() {
     return (
       <Container>

@@ -1,5 +1,5 @@
 import React from 'react'
-import {View,Text,StyleSheet,ImageBackground, TextInput, ScrollView} from 'react-native';
+import {View,Text,StyleSheet,ImageBackground, TextInput, ScrollView, ActivityIndicator} from 'react-native';
 // import { TextField } from 'react-native-material-textfield';
 import { 
     Container, Header, Left, Body, Right, Button, Icon, 
@@ -36,14 +36,49 @@ class Register extends React.Component{
         super(props);
       }
       state = {
-        email: '',
-        password:'',
-        retype :'',
-        phone:''
+        name : 'Ryan',
+        alamat: 'jalanku',
+        email: 'mailsas@mail.com',
+        password:'azharns1653',
+        retype :'hahaa',
+        phone:'085373318178',
+        status: '1'
       };
 
-      redirect_Home(){
-        this.props.navigation.navigate('Home', { name: 'Jane' } ) 
+      register(){
+          fetch('http://azizpc.codepanda.web.id/api/auth/register',{
+              method: 'post',
+              headers:{
+                  Accept: 'application/json',
+                  'Content-type' : 'application/json' 
+              },
+              body:JSON.stringify({
+                  name: this.state.name,
+                  email: this.state.email,
+                  password: this.state.password,
+                  phone: this.state.phone,
+                  alamat: this.state.alamat,
+                  status: this.state.status
+
+              })
+
+          }).then((response)=> response.json())
+                    .then((responseJSON)=> {
+                        if(responseJSON.data){
+                            alert("Pendaftaran Berhasil")
+                            this.redirect_Home(responseJSON)
+                        }
+                        else{
+                            alert("Pendaftaran gagal, isi data dengan benar!!")
+                        }
+                    })
+                    .catch((error)=>{
+                        console.error(error)
+                    })
+      }
+
+      redirect_Home(data){
+        this.props.navigation.navigate('Home', data) 
       }
 
       redirect(){
@@ -111,7 +146,7 @@ class Register extends React.Component{
                         <Button
                             block={true}
                             style={styles.buttonStyle}
-                            onPress={() => this.redirect_Home()}
+                            onPress={() => this.register()}
                             >
                             <Text style={styles.buttonTextStyle}>Register</Text>
                         </Button>
