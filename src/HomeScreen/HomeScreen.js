@@ -6,7 +6,12 @@ import LogoTitle from '../LogoTitle';
 import Mains from '../Mains';
 import SideMenus from '../SideMenus'
 import SideBar from "../SideBar/SideBar.js";
-import { StatusBar } from "react-native";
+import { View,
+  StyleSheet,
+  ImageBackground,
+  Image,
+  Platform,
+  KeyboardAvoidingView } from "react-native";
 import {
   Button,
   Text,
@@ -23,7 +28,9 @@ import {
 } from "native-base";
 
 
-
+var sayur = require('../../assets/image/sayur.png');
+var resep = require('../../assets/image/resep.png');
+var buah = require('../../assets/image/buah.png');
 
 export default class HomeScreen extends React.Component {
   constructor(props) {
@@ -34,7 +41,7 @@ export default class HomeScreen extends React.Component {
   render() {
     return (
       <Container>
-        <Header>
+        <Header style={styles.headerStyle}>
           <Left>
             <Button
               transparent
@@ -48,34 +55,79 @@ export default class HomeScreen extends React.Component {
           </Body>
           <Right />
         </Header>
-        <Content padder>
-          <Card>
-            <CardItem>
-              <Body>
-                <Text>Chat App to talk some awesome people!</Text>
-              </Body>
-            </CardItem>
+        <Content>
+          <Card style={styles.carding}>
+            <Image style={styles.cardImage}
+              source={sayur}
+              />
           </Card>
-          <Button
-            full
-            rounded
-            dark
-            style={{ marginTop: 10 }}
-            onPress={() => this.props.navigation.navigate("Home")}
-          >
-            <Text>Chat With People</Text>
-          </Button>
-          <Button
-            full
-            rounded
-            primary
-            style={{ marginTop: 10 }}
-            onPress={() => this.props.navigation.navigate("ProfileScreen")}
-          >
-            <Text>Goto Profiles</Text>
-          </Button>
+          <Card style={styles.carding}>
+            <Image style={styles.cardImage}
+              source={buah}
+              />
+          </Card>
+          <Card style={styles.carding}>
+            <Image style={styles.cardImage}
+              source={resep}
+              />
+          </Card>
         </Content>
       </Container>
     );
   }
 }
+const styles = StyleSheet.create({
+  headerStyle: {
+      backgroundColor: 'green',
+      height: 70,
+      paddingTop: Platform.OS === "android" ? 20 : 0,
+      // paddingTop: 18,
+      // marginTop: Platform.OS === "android" ? 18 : 0,
+      // backgroundColor: 'gray',
+  },
+  carding: {
+      marginTop: 20,
+  },
+  container: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center', 
+  },
+  titleStyle: {
+      fontSize: 25,
+      color: 'white',
+      // alignItems: 'center',
+      alignSelf: 'center'
+  },
+  buttonStyle: {
+      marginTop: 10,
+      marginBottom: 10,
+  },
+  buttonTextStyle: {
+      color: 'white'
+  },
+  cardImage: {
+    width: 360,
+    height: 135,
+    padding: 0,
+    margin: 0,
+    resizeMode: 'contain',
+    alignSelf: 'center',
+  },
+  logo: {
+      // flex: 1,
+      justifyContent: 'center',
+      marginTop: 70,
+      marginBottom: 50,
+      width: 250,
+      height: 250,
+      resizeMode: 'contain',
+      alignSelf: 'center',
+  },
+  labelStyle: {
+      color: 'white',
+  },
+  inputTextStyle: { 
+      color: 'white' 
+  }
+});
