@@ -10,9 +10,10 @@ import SignIn from './src/SignIn';
 import Register from './src/Register';
 import LogoTitle from './src/LogoTitle';
 import Mains from './src/Mains';
-import Home from './src/Home';
 import SideMenus from './src/SideMenus'
 import HomeScreen from './src/HomeScreen/HomeScreen.js'
+
+import StackNav from './src/Navigator/StackNav'
 
 // import ReduxNavigation from './Navigation/ReduxNavigation'
 
@@ -21,7 +22,10 @@ const Apps = StackNavigator({
   Main:{ screen: Mains },
   SignIn: { screen: SignIn },
   Register: { screen: Register },
-});
+  Home : {screen: HomeScreen}
+},
+  {headerMode : "none"}
+);
 
 
 export default class App extends React.Component {
@@ -39,7 +43,7 @@ export default class App extends React.Component {
     if(this.state.fontLoaded){
       return (
         <View style={styles.container}>
-          <Apps />
+          <StackNav />
         </View>
       );
     }

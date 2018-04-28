@@ -43,7 +43,7 @@ class Register extends React.Component{
       };
 
       redirect_Home(){
-        this.props.navigation.navigate('Home', { name: 'Jane' } )
+        this.props.navigation.navigate('Home', { name: 'Jane' } ) 
       }
 
       redirect(){
